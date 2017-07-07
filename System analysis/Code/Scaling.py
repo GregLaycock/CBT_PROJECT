@@ -12,14 +12,16 @@ from steady_state_values import steady_state
 ss = steady_state()
 # Disturbances (scaled to largest  expected deviation"
 
-d1max = 0.1 * 7.4  #kmol/m^3
+d1max = 0.05 * 7.4  #kmol/m^3
 d2max = 5          # deg C
 d3max = 0.1* 7.334e-4 # m^3/s
 dmax = [d1max,d2max,d3max]
 # Manipulated variables
 
-uallmax = 40 # same for all valves in Kpa (pressure signal to valves)
-umax = [uallmax,uallmax,uallmax]
+u1max = 40 # same for all valves in Kpa (pressure signal to valves)
+u2max = 40
+u3max = 50
+umax = [u1max,u2max,u3max]
 # errors
 e1max = 0.1 * ss['Cc'] #kmol/m3  assumed that downstream separation will allow for high throughput as long as production rate is reasonable (10% variation is acceptable)
 e2max = 5        # 5 degree Celcius freedom in temperature is acceptable to prevent runaway reaction
