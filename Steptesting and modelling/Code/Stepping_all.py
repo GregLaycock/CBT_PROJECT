@@ -275,7 +275,7 @@ def plotsteps():
     step_sols = [run_sim(i) for i in stepped_vars]
 
 
-    outputs = ['Cc_measured','T','H']
+    outputs = ['Cc','T','H']
 
     for i,input in enumerate(stepped_vars):
         for j, output in enumerate(outputs):
@@ -293,7 +293,7 @@ def get_results():
     combinations = []
     stepped_vars = ['Ps1','Ps2','Ps3','Cao','Tbo','F1']
     step_sols = [run_sim(i) for i in stepped_vars]
-    outputs = ['Cc_measured', 'T', 'H']
+    outputs = ['Cc', 'T', 'H']
     responses = []
 
     for i, input in enumerate(stepped_vars):

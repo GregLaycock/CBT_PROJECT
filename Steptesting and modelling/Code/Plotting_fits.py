@@ -43,9 +43,9 @@ def round2SignifFigs(vals,n):
 #all_params = [round2SignifFigs(i,2) for i in all_params]
 
 tspan = numpy.linspace(0, 2000, 1000)
-output_vars = ['Cc_measured','T','H','Cc_measured','T','H','Cc_measured','T','H','Cc_measured','T','H','Cc_measured','T','H','Cc_measured','T','H']
+output_vars = ['Cc','T','H','Cc','T','H','Cc','T','H','Cc','T','H','Cc','T','H','Cc','T','H']
 stepped_vars = ['Ps1','Ps2','Ps3','Cao','Tbo','F1']
-outputs = ['Cc_measured', 'T', 'H']
+outputs = ['Cc', 'T', 'H']
 names = []
 stepped = ['Ps1','Ps1','Ps1','Ps2','Ps2','Ps2','Ps3','Ps3','Ps3','Cao','Cao','Cao','Tbo','Tbo','Tbo','F1','F1','F1']
 for i, input in enumerate(stepped_vars):
@@ -80,7 +80,7 @@ for i, name in enumerate(names):
     plot.figure()
     plot.plot(tspan,simdata[name],'b-',label = 'simulated')
     plot.plot(tspan,fitted[i],'r-',label='fitted')
-    plot.title("Results of fitting a "+str(types[i]) + " model to step resonse of "+str(output_vars[i])+" to "+str(stepped[i]))
+    plot.title("Results of fitting a "+str(types[i]) + " model to step response of "+str(output_vars[i])+" to "+str(stepped[i]))
     plot.axis()
     plot.legend(loc=4)
     plot.xlabel('Time in sec')

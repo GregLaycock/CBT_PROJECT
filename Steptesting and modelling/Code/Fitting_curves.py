@@ -9,10 +9,10 @@ import scipy.optimize
  # there are now 18 data sets
 
 def get_type(name):                                                                  # based on intuition after seeing curves
-    if name == 'F1T' or name == 'Ps3T' or name == 'Ps3Cc_measured':
+    if name == 'F1T' or name == 'Ps3T' or name == 'Ps3Cc':
         fit_type = 'SOPTD'
 
-    elif name == 'Ps2T' or name == 'Ps2Cc_measured' :
+    elif name == 'Ps2T' or name == 'Ps2Cc' :
         fit_type = 'SOZPTD'
 
     else:
@@ -96,7 +96,7 @@ data = get_results()
 
 
 stepped_vars = ['Ps1','Ps2','Ps3','Cao','Tbo','F1']
-outputs = ['Cc_measured', 'T', 'H']
+outputs = ['Cc', 'T', 'H']
 names = []
 for i, input in enumerate(stepped_vars):
     for j, output in enumerate(outputs):
@@ -112,10 +112,10 @@ initials = get_initials(fit_types)
 
 u_vals = [20,20,20,20,20,20,20,20,20,0.2*7.4,0.2*7.4,0.2*7.4,0.2*24,0.2*24,0.2*24,0.2*7.334e-4,0.2*7.334e-4,0.2*7.334e-4]
 
-# results = run_all_fits(names,fit_types,initials,yo_vals,u_vals,data)
-#
-# import csv
-# params = results['optimal_parameters']
-# with open (r'Fit_results.csv', 'w', newline='') as write_file:
-#     write = csv.writer(write_file)
-#     write.writerows(fit for fit in params)
+results = run_all_fits(names,fit_types,initials,yo_vals,u_vals,data)
+
+import csv
+params = results['optimal_parameters']
+with open (r'Fit_results.csv', 'w', newline='') as write_file:
+    write = csv.writer(write_file)
+    write.writerows(fit for fit in params)
